@@ -13,7 +13,8 @@ class Category(m.Model):
 
 
 class Post(m.Model):
-    category = m.ForeignKey(Category, on_delete=m.CASCADE, blank=True, null=True)
+    category = m.ForeignKey(Category, on_delete=m.CASCADE,
+                blank=True, null=True, related_name='posts')
     title = m.CharField(max_length=200)
     body = m.TextField(blank=True, null=True)
     created_at = m.DateTimeField(auto_now_add=True)
