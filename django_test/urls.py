@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # from post.views import *
-from post.views import posts_list, PostListApiView
+from post.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,7 +28,11 @@ urlpatterns = [
     # path('api/create/', create_post_api_view),
     # path('api/delete/<int:id>/', delete_post_api_view),
     # path('api/update/<int:id>/', update_post_api_view)
-    path('api/listing/', PostListApiView.as_view()),
+    path('api/listing/', PostListAPIView.as_view()),
+    path('api/details/<int:id>/', PostDetailsAPIView.as_view()),
+    path('api/create/', CreatePostAPIView.as_view()),
+    path('api/delete/<int:id>/', DeletePostAPIView.as_view()),
+    path('api/update/<int:id>/', UpdatePostAPIView.as_view())
 
 ]
 
